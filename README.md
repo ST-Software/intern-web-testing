@@ -7,4 +7,6 @@ AUTOMATED WEB APPLICATION TESTING
 
 3)	Write a set of test cases (https://en.wikipedia.org/wiki/Test_case) for the worktime application. The number of test is solely on your consideration.
 
-4)	Using Selenium Webdriver and .net make an application (by your choice. For exampe console application) make an automatic tests that will follow the test cases from point 3
+4)	Using Selenium Webdriver and .net make an application (by your choice. For exampe console application) with automatic tests (so called test suite) that will follow the test cases from point 3
+
+5) Keep in mind, that there is no way how to restore the database before each test suite run. On the other hand there is a need to allow multiple test suite runs. So make the application in a way that it could be run more than once and still produce meaningful test summary.
