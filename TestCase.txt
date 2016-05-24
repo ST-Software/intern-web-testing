@@ -1,0 +1,2 @@
+1)Program by mìl kontrolovat docházku jednotlivıch zamìstnancù.
+	Kontroluje pøíchod, kterı odeèítá od odchodu, ke kterému je pøipoèítaná pøestavka 30 minut.
