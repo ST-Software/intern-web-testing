@@ -22,16 +22,19 @@ namespace web_testing
                      
                 foreach (IWebElement row in rows.Skip(1))
                 {
+                    
                     IList<IWebElement> cells = row.FindElements(By.CssSelector("td"));
-                    Console.WriteLine(cells[0].Text);
+                   
+                    Console.WriteLine(cells[0]);
                     counter += 1;
                     row.Click();
                 }
 
                     Console.ReadKey();
 
-
             }
+
         }
+
     }
 }
