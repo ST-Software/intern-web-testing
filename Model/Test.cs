@@ -4,9 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Selenium;
+using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium;
 
 namespace web_testing.Model
 {
+    
     class Test : ISelenium
     {
         public void AddLocationStrategy(string strategyName, string functionDefinition)
