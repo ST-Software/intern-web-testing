@@ -1,2 +1,7 @@
 1)Program by mìl kontrolovat docházku jednotlivých zamìstnancù.
 	Kontroluje pøíchod, který odeèítá od odchodu, ke kterému je pøipoèítaná pøestavka 30 minut.
+2)Program bude poèítat poèer události (Event Count)
+	Zkontroluje jestli je program na síti poèítá správnì
+
+3)Když pøišel do práce, musí mít 30 minut pøestávku
+	Bude kontrolovat dodržení
