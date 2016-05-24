@@ -18,19 +18,17 @@ namespace web_testing
             {
                 int counter = 1;
                 driver.Navigate().GoToUrl("http://10.0.1.228/intern_web_testing/Attendance.mvc/WorkTimePerDay");
-                IList<IWebElement> even = driver.FindElements(By.ClassName("even"));
-                IList<IWebElement> odd = driver.FindElements(By.ClassName("odd"));
-                //foreach(var item in even)
-                //{
-                //    item.FindElements(By.LinkText()
-                //}
-                foreach (IWebElement option in even)
+                IList<IWebElement> rows = driver.FindElements(By.CssSelector("tr"));
+                     
+                foreach (IWebElement row in rows.Skip(1))
                 {
-                    Console.WriteLine(counter.ToString() +") " + option.Text);
+                    IList<IWebElement> cells = row.FindElements(By.CssSelector("td"));
+                    Console.WriteLine(cells[0].Text);
                     counter += 1;
-                    option.Click();
+                    row.Click();
                 }
-                Console.ReadKey();
+
+                    Console.ReadKey();
 
 
             }
