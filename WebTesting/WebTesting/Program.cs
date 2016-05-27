@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WebTesting.Model;
 
 namespace WebTesting
 {
@@ -10,6 +11,9 @@ namespace WebTesting
     {
         static void Main(string[] args)
         {
+            WorkTimeControl work = new WorkTimeControl();
+            work.OpenChrome();
+            Console.ReadKey();
         }
     }
 }
