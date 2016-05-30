@@ -11,7 +11,7 @@ namespace WebTesting
     {
         static void Main(string[] args)
         {
-            WorkTimeControl work = new WorkTimeControl();
+            TestCases work = new TestCases();
             work.OpenChrome();
             Console.ReadKey();
         }
