@@ -12,12 +12,15 @@ namespace WebTesting.Model
     class TestCases
     {
         static string url = "http://10.0.1.228/intern_web_testing/Attendance.mvc/WorkTimePerDay";
-        IWebDriver driver;
+        public static IWebDriver driver;
 
         public void OpenChrome()
         {
             driver = new ChromeDriver();
             driver.Navigate().GoToUrl(url);
+            People p = new People();
+            p.SetListOfIDs();
+            p.SetListofWorkers();
             //WorkTimeControl();
             //SetAbsence();
             //BreakeControl();
@@ -30,7 +33,7 @@ namespace WebTesting.Model
 
             driver.FindElement(By.Name("tick_in_time")).SendKeys("10:00");
             driver.FindElement(By.Name("tick_out_time")).SendKeys("12:00");
-            driver.FindElement(By.CssSelector("#main > form > p > input")).Click();
+            driver.FindElement(By.XPath("//*/form/p/input")).Click();
             string worktime = driver.FindElement(By.XPath("//*/div[1]/table/tbody/tr[2]/td[7]")).Text;
             if (worktime == "2:00")
             {
@@ -46,8 +49,8 @@ namespace WebTesting.Model
             var element = driver.FindElement(By.Name("absence_kind"));
             var selectelement = new SelectElement(element);
             selectelement.SelectByText("Illness");
-            driver.FindElement(By.CssSelector("#main > form > p > input")).Click();
-            string notice = driver.FindElement(By.CssSelector("#main > div:nth-child(8) > table > tbody > tr:nth-child(2) > td:nth-child(8) > span")).Text;
+            driver.FindElement(By.XPath("//*/form/p/input")).Click();
+            string notice = driver.FindElement(By.XPath("//*/div[1]/table/tbody/tr[2]/td[8]/span")).Text;
             if (notice == "Illness")
             {
                 Console.WriteLine("Absence was set on Illness.");
@@ -60,7 +63,7 @@ namespace WebTesting.Model
 
             driver.FindElement(By.Name("tick_in_time")).SendKeys("10:00");
             driver.FindElement(By.Name("tick_out_time")).SendKeys("16:29");
-            driver.FindElement(By.CssSelector("#main > form > p > input")).Click();
+            driver.FindElement(By.XPath("//*/form/p/input")).Click();
             string breaktime = driver.FindElement(By.XPath("//*/div[1]/table/tbody/tr[2]/td[5]")).Text;
             if(breaktime == "0:29")
             {
@@ -74,13 +77,13 @@ namespace WebTesting.Model
 
             driver.FindElement(By.Name("tick_in_time")).SendKeys("10:00");
             driver.FindElement(By.Name("tick_out_time")).SendKeys("12:00");
-            driver.FindElement(By.CssSelector("#main > form > p > input")).Click();
+            driver.FindElement(By.XPath("//*/form/p/input")).Click();
 
             driver.FindElement(By.PartialLinkText("add")).Click();
 
             driver.FindElement(By.Name("tick_in_time")).SendKeys("12:30");
             driver.FindElement(By.Name("tick_out_time")).SendKeys("16:00");
-            driver.FindElement(By.CssSelector("#main > form > p > input")).Click();
+            driver.FindElement(By.XPath("//*/form/p/input")).Click();
 
             string worktime = driver.FindElement(By.XPath("//*/div[1]/table/tbody/tr[2]/td[7]")).Text;
             if (worktime == "5:30")

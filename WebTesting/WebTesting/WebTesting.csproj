@@ -54,7 +54,7 @@
   <ItemGroup>
     <Compile Include="Model\People.cs" />
     <Compile Include="Model\Worker.cs" />
-    <Compile Include="Model\WorkTimeControl.cs" />
+    <Compile Include="Model\TestCasesManager.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
