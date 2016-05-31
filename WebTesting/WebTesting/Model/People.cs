@@ -10,32 +10,30 @@ namespace WebTesting.Model
 {
     class People
     {
-        IList<IWebElement> IDs;
-        public List<Worker> Workers;
+        public List<string> IDs;
+        public Worker wor;
+        
 
         public void SetListOfIDs()
         {
-            IDs = TestCases.driver.FindElements(By.XPath("//tr/td[1]/a"));
-            
-            foreach (IWebElement element in IDs)
-            {
-                
-                //Console.WriteLine(element.Text);
-            }
+            IDs = TestCases.driver.FindElements(By.XPath("//tr/td[1]/a")).Select(x=>x.Text).ToList();
         }
 
-        public void SetListofWorkers()
+        public void SetListofWorkers(string ID)
         {
-            for(int i = 0; i < IDs.Count; i++)
-            {
                 //Console.WriteLine(TestCases.driver.FindElement(By.XPath("//tr/td/a[contains(text(),'"+ IDs[i].Text +"')]/../..")).Text);
-                Workers[i].ID = TestCases.driver.FindElement(By.XPath("//tr/td/a[contains(text(),'" + IDs[i].Text + "')]/../../td[1]")).Text;
-                Workers[i].Breaks = TestCases.driver.FindElement(By.XPath("//tr/td/a[contains(text(),'" + IDs[i].Text + "')]/../../td[5]")).Text;
-                Workers[i].Notice = TestCases.driver.FindElement(By.XPath("//tr/td/a[contains(text(),'" + IDs[i].Text + "')]/../../td[8]")).Text;
-                Workers[i].WorkTime = TestCases.driver.FindElement(By.XPath("//tr/td/a[contains(text(),'" + IDs[i].Text + "')]/../../td[7]")).Text;
-                Workers[i].Add = TestCases.driver.FindElement(By.XPath("//tr/td/a[contains(text(),'" + IDs[i].Text + "')]/../../td/a[contains(text(),'add')]"));
-                Workers[i].Absent = TestCases.driver.FindElement(By.XPath("//tr/td/a[contains(text(),'" + IDs[i].Text + "')]/../../td/a[contains(text(),'absence')]"));
-            }
+                wor = new Worker();
+                wor.ID = TestCases.driver.FindElement(By.XPath("//tr/td/a[contains(text(),'" + ID + "')]/../../td[1]")).Text;
+                wor.Breaks = TestCases.driver.FindElement(By.XPath("//tr/td/a[contains(text(),'" + ID + "')]/../../td[5]")).Text;
+                wor.Notice = TestCases.driver.FindElement(By.XPath("//tr/td/a[contains(text(),'" + ID + "')]/../../td[8]")).Text;
+                wor.WorkTime = TestCases.driver.FindElement(By.XPath("//tr/td/a[contains(text(),'" + ID + "')]/../../td[7]")).Text;
+                wor.Add = TestCases.driver.FindElement(By.XPath("//tr/td/a[contains(text(),'" + ID + "')]/../../td/a[contains(text(),'add')]"));
+                wor.Absence = TestCases.driver.FindElement(By.XPath("//tr/td/a[contains(text(),'" + ID + "')]/../../td/a[contains(text(),'absence')]"));
+
+            //foreach(Worker wor in Workers)
+            //{
+            //    Console.WriteLine(wor.ID + " " + wor.WorkTime + " " + wor.Breaks + " " + wor.Notice);
+            //}
            
         }
     }

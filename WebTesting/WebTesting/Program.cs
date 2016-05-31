@@ -13,7 +13,9 @@ namespace WebTesting
         static void Main(string[] args)
         {
             TestCases work = new TestCases();
-            work.OpenChrome();
+            work.Manager();
+            Console.ReadKey();
+            work.Close();
             Console.ReadKey();
         }
     }

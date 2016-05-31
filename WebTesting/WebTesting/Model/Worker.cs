@@ -14,6 +14,6 @@ namespace WebTesting.Model
         public string WorkTime { get; set; }
         public string Notice { get; set; }
         public IWebElement Add { get; set; }
-        public IWebElement Absent { get; set; }
+        public IWebElement Absence { get; set; }
     }
 }
