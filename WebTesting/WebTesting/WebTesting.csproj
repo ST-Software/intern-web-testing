@@ -46,9 +46,15 @@
       <HintPath>..\packages\Selenium.WebDriver.2.53.0\lib\net40\WebDriver.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="WebDriver.Support, Version=2.53.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Selenium.Support.2.53.0\lib\net40\WebDriver.Support.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Model\WorkTimeControl.cs" />
+    <Compile Include="Model\People.cs" />
+    <Compile Include="Model\Worker.cs" />
+    <Compile Include="Model\TestCasesManager.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

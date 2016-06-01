@@ -5,14 +5,17 @@ using System.Text;
 using System.Threading.Tasks;
 using WebTesting.Model;
 
+
 namespace WebTesting
 {
     class Program
     {
         static void Main(string[] args)
         {
-            WorkTimeControl work = new WorkTimeControl();
-            work.OpenChrome();
+            TestCases work = new TestCases();
+            work.Manager();
+            Console.ReadKey();
+            work.Close();
             Console.ReadKey();
         }
     }
