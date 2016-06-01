@@ -13,7 +13,7 @@ namespace WebTesting.Model
     {
         static string url = "http://10.0.1.228/intern_web_testing/Attendance.mvc/WorkTimePerDay";
         public static IWebDriver driver;
-        private int WorkerIndex = 7;
+        private int WorkerIndex = 0;
         People p = new People();
 
         public void Manager()
@@ -40,12 +40,13 @@ namespace WebTesting.Model
             driver.FindElement(By.Name("tick_in_time")).SendKeys("10:00");
             driver.FindElement(By.Name("tick_out_time")).SendKeys("12:00");
             driver.FindElement(By.XPath("//*/form/p/input")).Click();
+            
+            p.SetListofWorkers(p.IDs[WorkerIndex]);
             if (p.wor.WorkTime == "2:00")
             {
-                Console.WriteLine("WorkTime Control was set on 2:00");
+                Console.WriteLine("WorkTime was set on 2:00");
             }
-            else { Console.WriteLine(""); }
-            p.SetListofWorkers(p.IDs[WorkerIndex]);
+            else { Console.WriteLine("WorkTime check failed."); }
         }
 
         public void SetAbsence()
@@ -55,10 +56,12 @@ namespace WebTesting.Model
             SelectElement selectelement = new SelectElement(driver.FindElement(By.Name("absence_kind")));
             selectelement.SelectByText("Illness");
             driver.FindElement(By.XPath("//*/form/p/input")).Click();
+            p.SetListofWorkers(p.IDs[WorkerIndex]);
             if (p.wor.Notice == "Illness")
             {
                 Console.WriteLine("Absence was set on Illness.");
             }
+            else { Console.WriteLine("Absence check failed."); }
             WorkerIndex++;
             p.SetListofWorkers(p.IDs[WorkerIndex]);
         }
@@ -70,10 +73,12 @@ namespace WebTesting.Model
             driver.FindElement(By.Name("tick_in_time")).SendKeys("10:00");
             driver.FindElement(By.Name("tick_out_time")).SendKeys("16:29");
             driver.FindElement(By.XPath("//*/form/p/input")).Click();
-            if(p.wor.Breaks == "0:29")
+            p.SetListofWorkers(p.IDs[WorkerIndex]);
+            if (p.wor.Breaks == "0:29")
             {
                 Console.WriteLine("Break was set on 0:29.");
             }
+            else { Console.WriteLine("Break check failed."); }
             WorkerIndex++;
             p.SetListofWorkers(p.IDs[WorkerIndex]);
         }
@@ -92,12 +97,14 @@ namespace WebTesting.Model
             driver.FindElement(By.Name("tick_in_time")).SendKeys("12:30");
             driver.FindElement(By.Name("tick_out_time")).SendKeys("16:00");
             driver.FindElement(By.XPath("//*/form/p/input")).Click();
-            
+          
+            p.SetListofWorkers(p.IDs[WorkerIndex]);
             if (p.wor.WorkTime == "5:30")
             {
                 Console.WriteLine("WorkTime was set on 5:30");
             }
-            p.SetListofWorkers(p.IDs[WorkerIndex]);
+            else { Console.WriteLine("WorkTime check failed."); }
         }
+       
     }
 }
